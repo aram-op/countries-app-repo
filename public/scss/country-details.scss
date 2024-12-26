@@ -1,0 +1,137 @@
+@import "info";
+@import "element";
+@import "variables";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .flag {
+    border: 1px solid rgba(0, 0, 0, 0.07);
+  }
+
+  .back {
+    @include element;
+    text-decoration: none;
+    padding: 0 15px;
+    border: none;
+    width: 100px;
+    height: 35px;
+    border-radius: 5px;
+    font-family: $main-font;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+
+    img {
+      filter: invert(var(--invertion));
+    }
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .name {
+      font-size: 25px;
+      font-weight: 700;
+    }
+
+    .main-info-container, .secondary-info-container {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+
+      @include info;
+    }
+
+    .borders-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      .border-countries {
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      .borders-flex {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        max-width: 290px;
+
+        .border-card {
+          @include element;
+          min-width: 90px;
+          padding: 7px 10px;
+          border-radius: 5px;
+          text-align: center;
+          font-size: 14px;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (min-width: 900px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+
+    .flag {
+      width: 60%;
+      grid-column: 1;
+      justify-self: center;
+    }
+
+    .column {
+      display: grid;
+
+      .name {
+        grid-row: 1;
+        grid-column: 1;
+        font-size: 30px;
+      }
+
+      .info {
+        font-size: 18px;
+      }
+
+      .main-info-container {
+        grid-row: 2;
+        grid-column: 1;
+      }
+
+      .secondary-info-container {
+        grid-row: 2;
+        grid-column: 2;
+      }
+
+      .borders-container  {
+        grid-column: 1/span 2;
+        grid-row: 3;
+
+        .borders-flex {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+extends layout.pug
+
+block content
+    main
+        .container
+            a(href='/').back
+                img(src='../assets/arrow-back.svg' width='20px' height='20px')
+                |  Back
+            img.flag(src=country.flag width="300px" height="auto")
+
+            .column
+                h1.name #{country.name}
+
+                .main-info-container
+                    p.info
+                        b Native Name:
+                        |  #{country.nativeName}
+                    p.info
+                        b Population:
+                        |  #{country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                    p.info
+                        b Region:
+                        |  #{country.region}
+                    p.info
+                        b Sub Region:
+                        |  #{country.subregion}
+                    p.info
+                        b Capital:
+                        |  #{country.capital}
+
+                .secondary-info-container
+                    p.info
+                        b Top Level Domain:
+                        |  #{country.topLevelDomain}
+                    p.info
+                        b Currencies:
+                        if(country.currencies)
+                            each currency, index in country.currencies
+                                if (index === country.currencies.length - 1)
+                                    |  #{currency.name}
+                                else
+                                    |  #{currency.name},
+                    p.info
+                        b Languages:
+                        if(country.languages)
+                            each language, index in country.languages
+                                if (index === country.languages.length - 1)
+                                    |  #{language.name}
+                                else
+                                    |  #{language.name},
+                .borders-container
+                    p.border-countries Border Countries:
+                    .borders-flex
+                        if(country.borders)
+                            each border in country.borders
+                                .border-card #{border}

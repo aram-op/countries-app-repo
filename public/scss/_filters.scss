@@ -1,0 +1,53 @@
+@import "element";
+@import "variables";
+
+.filters-container {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: 100%;
+  gap: 40px;
+
+  .input-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    @include element;
+    border-radius: 5px;
+    height: 50px;
+    padding: 10px 15px;
+
+    img {
+      filter: invert(var(--invertion));
+    }
+
+    input {
+      border: none;
+      color: var(--input-color);
+      font-family: $main-font;
+      font-size: 15px;
+      margin-left: 15px;
+      width: 100%;
+      height: 100%;
+      outline: none;
+      caret-color: var(--input-color);
+      background-color: var(--primary-color);
+
+      &::placeholder {
+        color: var(--input-color);
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .filters-container {
+    padding: 0 50px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+
+    .input-container {
+      max-width: 500px;
+    }
+  }
+}

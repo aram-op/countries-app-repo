@@ -1,0 +1,14 @@
+.card-container
+    a(href=`/country/${country.slug}`)
+        img(src=country.flag, width="100%" height="auto")
+        .info-container
+            p.name #{country.name}
+            p.info
+                b Population:
+                |  #{country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+            p.info
+                b Region:
+                |  #{country.region}
+            p.info
+                b Capital:
+                |  #{country.capital}

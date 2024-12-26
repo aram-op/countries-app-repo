@@ -1,3 +1,31 @@
-extends layout
+extends layout.pug
+
 block content
-    p Something!!
+    main
+        .filters-container
+            .input-container
+                img(src='/assets/search.svg' width='25px' height='25px' alt='search')
+                input(type="text", placeholder="Search for a country...")
+            select#region-filter.region-filter
+                option(value='africa') Africa
+                option(value='america') America
+                option(value='asia') Asia
+                option(value='europe') Europe
+                option(value='oceania') Oceania
+        .country-container
+            each country in data
+                include includes/country-card
+
+    script(src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js")
+    script.
+        document.addEventListener('DOMContentLoaded', function () {
+            var element = document.getElementById('region-filter');
+            var choices = new Choices(element, {
+                shouldSort: false,
+                placeholder: true,
+                placeholderValue: 'Filter By Region',
+                itemSelectText: '',
+                searchEnabled: false,
+                shouldSort: true,
+            });
+        });

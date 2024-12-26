@@ -1,8 +1,37 @@
 doctype html
 html
     head
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet")
+        link(rel="stylesheet",href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css")
         title Where in the world?
+        link(rel='stylesheet', href='/scss/index.css')
     body
         block header
-            include ../includes/header
+            include includes/header
         block content
+        script.
+            const toggleButton = document.querySelector('.switch-theme');
+
+            function toggleTheme() {
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+
+                if (currentTheme === 'dark') {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            }
+
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+
+            toggleButton.addEventListener('click', toggleTheme);

@@ -1,0 +1,30 @@
+$light-text-color: hsl(200, 15%, 8%);
+$light-input-color: hsl(0, 0%, 52%);
+$light-background-color: hsl(0, 0%, 98%);
+$light-primary-color: hsl(0, 0%, 100%);
+$main-font: "Nunito Sans", sans-serif;
+$dark-primary-color: hsl(209, 23%, 22%);
+$dark-background-color: hsl(207, 26%, 17%);
+$dark-text-color: hsl(0, 0%, 100%);
+$dark-input-color: hsl(0, 0%, 100%);
+$dark-shadow-color: rgba(0, 0, 0, 0.42);
+$light-shadow-color: #d3caca;
+
+
+:root {
+  --background-color: #{$light-background-color};
+  --text-color: #{$light-text-color};
+  --primary-color: #{$light-primary-color};
+  --input-color: #{$light-input-color};
+  --shadow-color: #{$light-shadow-color};
+  --invertion: 0;
+}
+
+[data-theme="dark"] {
+  --background-color: #{$dark-background-color};
+  --text-color: #{$dark-text-color};
+  --primary-color: #{$dark-primary-color};
+  --input-color: #{$dark-input-color};
+  --shadow-color: #{$dark-shadow-color};
+  --invertion: 1;
+}

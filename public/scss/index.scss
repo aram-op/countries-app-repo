@@ -1,0 +1,32 @@
+@import "resets";
+@import "filters";
+@import "header";
+@import "variables";
+@import "choices";
+@import "country-card";
+@import "country-details";
+
+body {
+  font-family: $main-font;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: 0.2s;
+}
+
+main {
+  padding: 25px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.country-container {
+  width: 100%;
+  padding-top:70px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 220px);
+  grid-auto-rows: 270px;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 50px;
+}
