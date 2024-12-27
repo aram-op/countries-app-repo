@@ -4,12 +4,12 @@ block content
     main
         .container
             a(href='/').back
-                img(src='../assets/arrow-back.svg' width='20px' height='20px')
+                img(src='../assets/arrow-back.svg' width='20px' height='20px' alt='back arrow')
                 |  Back
-            img.flag(src=country.flag width="300px" height="auto")
+            img.flag(src=country.flags.svg width="300px" height="auto" alt='flag')
 
             .column
-                h1.name #{country.name}
+                h1.name= country.name
 
                 .main-info-container
                     p.info
@@ -36,15 +36,15 @@ block content
                         b Currencies:
                         if(country.currencies)
                             each currency, index in country.currencies
-                                if (index === country.currencies.length - 1)
-                                    |  #{currency.name}
-                                else
-                                    |  #{currency.name},
+                                    if(index === country.currencies.length - 1)
+                                        |  #{currency.name}
+                                    else
+                                        | #{currency.name},
                     p.info
                         b Languages:
                         if(country.languages)
                             each language, index in country.languages
-                                if (index === country.languages.length - 1)
+                                if(index === country.languages.length - 1)
                                     |  #{language.name}
                                 else
                                     |  #{language.name},
@@ -53,4 +53,4 @@ block content
                     .borders-flex
                         if(country.borders)
                             each border in country.borders
-                                .border-card #{border}
+                                .border-card= border

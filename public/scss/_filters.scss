@@ -8,33 +8,50 @@
   gap: 40px;
 
   .input-container {
-    display: flex;
-    align-items: center;
     width: 100%;
     @include element;
     border-radius: 5px;
     height: 50px;
     padding: 10px 15px;
 
-    img {
-      filter: invert(var(--invertion));
-    }
+    form {
+      display: flex;
+      align-items: center;
 
-    input {
-      border: none;
-      color: var(--input-color);
-      font-family: $main-font;
-      font-size: 15px;
-      margin-left: 15px;
-      width: 100%;
-      height: 100%;
-      outline: none;
-      caret-color: var(--input-color);
-      background-color: var(--primary-color);
+      button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
 
-      &::placeholder {
+        &:hover {
+          opacity: 0.8;
+        }
+
+        &:active {
+          opacity: 0.5;
+        }
+      }
+
+      img {
+        filter: invert(var(--invertion));
+      }
+
+      input {
+        border: none;
         color: var(--input-color);
-        opacity: 0.5;
+        font-family: $main-font;
+        font-size: 15px;
+        margin-left: 15px;
+        width: 100%;
+        height: 100%;
+        outline: none;
+        caret-color: var(--input-color);
+        background-color: var(--primary-color);
+
+        &::placeholder {
+          color: var(--input-color);
+          opacity: 0.5;
+        }
       }
     }
   }

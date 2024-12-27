@@ -1,8 +1,9 @@
+
 .card-container
-    a(href=`/country/${country.slug}`)
-        img(src=country.flag, width="100%" height="auto")
+    a(href=`/country/${country.alpha3Code ? country.alpha3Code : country.cca3}`)
+        img(src=country.flags.svg, width="100%" height="auto" alt='flag')
         .info-container
-            p.name #{country.name}
+            p.name #{country.name.common ? country.name.common : country.name}
             p.info
                 b Population:
                 |  #{country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
