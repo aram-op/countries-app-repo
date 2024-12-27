@@ -53,4 +53,4 @@ block content
                     .borders-flex
                         if(country.borders)
                             each border in country.borders
-                                .border-card= border
+                                a.border-card(href=`/country/${border}`)= border
