@@ -3,4 +3,16 @@
 @mixin element {
   background-color: var(--primary-color);
   box-shadow: 0 1px 7px -2px var(--shadow-color);
+  border-radius: 5px;
 }
+
+@mixin info {
+  .info {
+    font-weight: 300;
+
+    b {
+      font-weight: 500;
+    }
+  }
+}
+

@@ -9,22 +9,26 @@ $dark-text-color: hsl(0, 0%, 100%);
 $dark-input-color: hsl(0, 0%, 100%);
 $dark-shadow-color: rgba(0, 0, 0, 0.42);
 $light-shadow-color: #d3caca;
+$light-highlight-color: #f2f2f2;
+$dark-highlight-color: hsl(207, 26%, 17%);
 
 
 :root {
-  --background-color: #{$light-background-color};
-  --text-color: #{$light-text-color};
-  --primary-color: #{$light-primary-color};
-  --input-color: #{$light-input-color};
-  --shadow-color: #{$light-shadow-color};
   --invertion: 0;
+  --background-color: #{$light-background-color};
+  --highlight-color: #{$light-highlight-color};
+  --input-color: #{$light-input-color};
+  --primary-color: #{$light-primary-color};
+  --shadow-color: #{$light-shadow-color};
+  --text-color: #{$light-text-color};
 }
 
 [data-theme="dark"] {
-  --background-color: #{$dark-background-color};
-  --text-color: #{$dark-text-color};
-  --primary-color: #{$dark-primary-color};
-  --input-color: #{$dark-input-color};
-  --shadow-color: #{$dark-shadow-color};
   --invertion: 1;
+  --background-color: #{$dark-background-color};
+  --highlight-color: #{$dark-highlight-color};
+  --input-color: #{$dark-input-color};
+  --primary-color: #{$dark-primary-color};
+  --shadow-color: #{$dark-shadow-color};
+  --text-color: #{$dark-text-color};
 }

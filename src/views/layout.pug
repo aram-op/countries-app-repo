@@ -6,12 +6,18 @@ html
         link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
         link(href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet")
         link(rel="stylesheet",href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css")
-        title Where in the world?
         link(rel='stylesheet', href='/scss/index.css')
+        title Where in the world?
+        script.
+            const theme = localStorage.getItem('theme');
+            if (theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+            }
     body
         block header
             include includes/header
         block content
+        script(type="text/javascript" , src='/js/choices-config.js')
         script.
             const toggleButton = document.querySelector('.switch-theme');
 

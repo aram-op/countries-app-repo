@@ -7,26 +7,28 @@
 @import "country-details";
 
 body {
-  font-family: $main-font;
   background-color: var(--background-color);
   color: var(--text-color);
-  transition: 0.2s;
+  font-family: $main-font;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s, color 0.3s;
 }
 
 main {
-  padding: 25px 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 25px 30px;
 }
 
 .country-container {
-  width: 100%;
-  padding-top:70px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 220px);
-  grid-auto-rows: 270px;
-  justify-content: center;
   align-items: center;
+  display: grid;
+  grid-auto-rows: 270px;
   grid-gap: 50px;
+  grid-template-columns: repeat(auto-fit, 220px);
+  justify-content: center;
+  padding-top: 70px;
+  width: 100%;
 }

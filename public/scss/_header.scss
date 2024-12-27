@@ -1,14 +1,15 @@
 @import "variables";
-@import "element";
+@import "mixins";
 
 header {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
+  display: flex;
   gap: 20px;
   height: 90px;
+  justify-content: space-between;
   padding: 20px;
-  @include element;
+  background-color: var(--primary-color);
+  box-shadow: 0 1px 7px -2px var(--shadow-color);
 }
 
 .heading {
@@ -17,17 +18,17 @@ header {
 }
 
 .switch-theme {
-  outline: none;
+  align-items: center;
   background-color: transparent;
   border: none;
+  color: var(--text-color);
+  cursor: pointer;
   display: flex;
-  align-items: center;
   font-size: 13px;
   font-weight: 400;
   justify-content: space-between;
+  outline: none;
   width: 90px;
-  cursor: pointer;
-  color: var(--text-color);
 
   img {
     filter: invert(var(--invertion));
@@ -47,8 +48,8 @@ header {
       width: 115px;
 
       img {
-        width: 25px;
         height: 25px;
+        width: 25px;
       }
     }
   }

@@ -9,40 +9,14 @@ block content
                         img(src='/assets/search.svg' width='25px' height='25px' alt='search')
                     input(type="text", placeholder="Search for a country...", id="search", name="search", value=searchQuery)
             select#region-filter.region-filter
-                option(value='africa', selected= region==='africa' && region) Africa
-                option(value='america', selected= region==='america' && region) America
-                option(value='asia', selected= region==='asia' && region) Asia
-                option(value='europe', selected= region==='europe' && region) Europe
-                option(value='oceania', selected= region==='oceania' && region) Oceania
+                option(value='') Not Selected
+                option(value='africa', selected=region === 'africa') Africa
+                option(value='america', selected=region === 'america') America
+                option(value='asia', selected=region === 'asia') Asia
+                option(value='europe', selected=region === 'europe') Europe
+                option(value='oceania', selected=region === 'oceania') Oceania
         .country-container
             each country in data
                 include includes/country-card
 
     script(src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js")
-    script.
-        document.addEventListener('DOMContentLoaded', function () {
-            const element = document.getElementById('region-filter');
-            const choices = new Choices(element, {
-                shouldSort: false,
-                placeholder: true,
-                placeholderValue: 'Filter By Region',
-                itemSelectText: '',
-                searchEnabled: false,
-                shouldSort: true,
-            });
-
-            element.addEventListener('change', (e) => {
-                const selectedValue = e.target.value;
-
-                const currentUrl = new URL(window.location.href);
-
-                if(currentUrl.searchParams.has('search')) {
-                    currentUrl.searchParams.delete('search');
-                }
-                currentUrl.searchParams.set('region', selectedValue);
-
-                history.pushState(null, '', currentUrl.toString());
-
-                window.location.href = currentUrl.toString();
-            });
-        });
