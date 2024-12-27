@@ -20,7 +20,7 @@ module.exports = {
     },
 
     async fetchCountriesBySearch(search) {
-        const response = await fetch(`https://restcountries.com/v2/name/${search}?fields=name,capital,flags,population,region,cca3`);
+        const response = await fetch(`https://restcountries.com/v3.1/name/${search}?fields=name,capital,flags,population,region,cca3`);
 
         if(!response.ok) {
             throw new Error(`Response status: ${response.status}`, {cause: {status: response.status}});
