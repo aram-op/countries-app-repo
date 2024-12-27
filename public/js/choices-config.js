@@ -11,27 +11,29 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    element.addEventListener('change', (e) => {
-        const selectedValue = e.target.value;
-        const currentUrl = new URL(window.location.href);
+    if(element) {
+        element.addEventListener('change', (e) => {
+            const selectedValue = e.target.value;
+            const currentUrl = new URL(window.location.href);
 
-        if (selectedValue.length === 0 && currentUrl.searchParams.has('region')) {
-            currentUrl.searchParams.delete('region');
+            if (selectedValue.length === 0 && currentUrl.searchParams.has('region')) {
+                currentUrl.searchParams.delete('region');
+
+                history.pushState(null, '', currentUrl.toString());
+
+                window.location.href = currentUrl.toString();
+                return;
+            }
+
+            if (currentUrl.searchParams.has('search')) {
+                currentUrl.searchParams.delete('search');
+            }
+
+            currentUrl.searchParams.set('region', selectedValue);
 
             history.pushState(null, '', currentUrl.toString());
 
             window.location.href = currentUrl.toString();
-            return;
-        }
-
-        if (currentUrl.searchParams.has('search')) {
-            currentUrl.searchParams.delete('search');
-        }
-
-        currentUrl.searchParams.set('region', selectedValue);
-
-        history.pushState(null, '', currentUrl.toString());
-
-        window.location.href = currentUrl.toString();
-    });
+        });
+    }
 });

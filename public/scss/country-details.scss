@@ -126,6 +126,9 @@
       .borders-container  {
         grid-column: 1/span 2;
         grid-row: 3;
+        flex-direction: row;
+        align-items: center;
+        text-wrap: nowrap;
 
         .borders-flex {
           max-width: 100%;
